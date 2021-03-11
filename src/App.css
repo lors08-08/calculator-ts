@@ -1,38 +1,166 @@
-.App {
-  text-align: center;
+.grid-container {
+  position: relative;
+  margin: auto;
+  font-weight: bold;
+  border-radius: 24px;
+  display: grid;
+  background-color: #f1f3f6;
+  max-width: 447px;
+  min-width: 447px;
+  padding: 20px 0;
+  justify-content: center;
+  grid-template-areas:
+    "display    display   display     display"
+    "modifiers  modifiers modifiers   operators"
+    "numbers    numbers   numbers     operators  "
+    "numbers    numbers   numbers     operators "
+    "numbers    numbers   numbers     operators "
+    "numbers    numbers   numbers     operators";
+  grid-auto-rows: 100px;
+  grid-template-columns: repeat(4, 106px);
+}
+.grid-container-dark {
+  position: relative;
+  margin: auto;
+  font-weight: bold;
+  border-radius: 24px;
+  display: grid;
+  background-color: #283345;
+  max-width: 447px;
+  min-width: 447px;
+  padding: 20px 0;
+  justify-content: center;
+  grid-template-areas:
+    "display    display   display     display"
+    "modifiers  modifiers modifiers   operators"
+    "numbers    numbers   numbers     operators  "
+    "numbers    numbers   numbers     operators "
+    "numbers    numbers   numbers     operators "
+    "numbers    numbers   numbers     operators";
+  grid-auto-rows: 100px;
+  grid-template-columns: repeat(4, 106px);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.display {
+  grid-area: display;
+  color: #0f162e;
+  text-align: right;
+  line-height: 80px;
+  font-size: 4em;
+  padding-right: 13px;
+}
+.display-dark {
+  grid-column: 1/5;
+  color: white;
+  text-align: right;
+  line-height: 80px;
+  font-size: 4em;
+  padding-right: 13px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.numbers {
+  grid-area: numbers;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.modifiers {
+  grid-area: modifiers;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.operators {
+  grid-area: operators;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.operators-keys,
+.num-keys,
+.num-keys,
+.modifiers-keys {
+  text-align: center;
+  line-height: 75px;
+  box-shadow: -3px -5px 9px 0 #ffffff, 7px 8px 10px 4px #e5e5e5;
+  border-radius: 24px;
+  font-size: 2em;
+  cursor: pointer;
+  width: 80px;
+  height: 80px;
+}
+.operators-keys-dark,
+.num-keys-dark,
+.num-keys-dark,
+.modifiers-keys-dark {
+  text-align: center;
+  line-height: 75px;
+  box-shadow: -3px -5px 9px 0 #3d4551, 7px 8px 10px 4px #1e263a;
+  border-radius: 24px;
+  font-size: 2em;
+  cursor: pointer;
+  width: 80px;
+  height: 80px;
+}
+
+.operators-keys-dark:hover,
+.num-keys-dark:hover,
+.modifiers-keys-dark:hover {
+  box-shadow: inset -3px -5px 9px 0 #1e263a, inset -3px -3px 9px 0 #3d4551;
+}
+
+.operators-keys:hover,
+.num-keys:hover,
+.modifiers-keys:hover {
+  box-shadow: inset -3px -5px 9px 0 #ffffff, inset -3px -3px 9px 0 #e5e5e5;
+}
+
+.operators-keys,
+.operators-keys-dark {
+  color: #fc9406;
+}
+.modifiers-keys,
+.modifiers-keys-dark {
+  color: #858b9b;
+}
+.num-keys {
+  color: #0f162e;
+}
+.num-keys-dark {
+  color: #ffffff;
+}
+
+.theme-toggle {
+  position: absolute;
   color: white;
+  width: 80px;
+  height: 30px;
+  padding: 5px;
+}
+.theme-toggle img {
+  height: 30px;
+  cursor: pointer;
+}
+button {
+  background: none;
+  border: none;
+}
+button:focus {
+  outline: none;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.history {
+  position: absolute;
+  width: 400px;
+  height: 200px;
+  background-color: #ccc;
+  border-radius: 24px;
+  font-size: 2em;
+  padding: 1em;
+  overflow-y: scroll;
+  right: 0;
+  left: 0;
 }
